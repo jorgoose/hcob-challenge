@@ -1,0 +1,196 @@
+{% extends "layouts/base.html" %} {% block title %} Collateral Evaluator {%
+endblock %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %} {% block content %}
+
+<!-- [ Main Content ] start -->
+<div class="pcoded-main-container">
+  <div class="pcoded-wrapper">
+    <div class="pcoded-content">
+      <div class="pcoded-inner-content">
+        <!-- [ breadcrumb ] start -->
+
+        <!-- [ breadcrumb ] end -->
+        <div class="main-body">
+          <div class="page-wrapper">
+            <!-- [ Main Content ] start -->
+            <div class="row">
+              <div class="col-md-12">
+                <div class="card">
+                  <div class="card-header">
+                    <h5>Collateral Evaluator</h5>
+                  </div>
+                  <div class="card-body">
+                    <div class="table-responsive">
+                      <table id="collateral-table" class="table table-hover">
+                        <thead>
+                          <tr>
+                            <th>Collateral Type</th>
+                            <th>Collateral Value</th>
+                            <th>Comparable Metrics</th>
+                            <th>Historical Performance</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Real Estate</td>
+                            <td>$500,000</td>
+                            <td>Market Value, Location, Size</td>
+                            <td>ROI, Rental Income</td>
+                          </tr>
+                          <tr>
+                            <td>Inventory</td>
+                            <td>$200,000</td>
+                            <td>Turnover Rate, Obsolescence</td>
+                            <td>Sales Volume, Profit Margin</td>
+                          </tr>
+                          <!-- Add more rows for different collateral types and metrics -->
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="card">
+                  <div class="card-header">
+                    <h5>Collateral Metrics Comparison</h5>
+                  </div>
+                  <div class="card-body">
+                    <canvas
+                      id="collateral-chart"
+                      width="400"
+                      height="200"
+                    ></canvas>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="card">
+                  <div class="card-header">
+                    <h5>Historical Performance Analysis</h5>
+                  </div>
+                  <div class="card-body">
+                    <div id="collateral-timeline"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- [ Main Content ] end -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- [ Main Content ] end -->
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+<script>
+  // Chart.js initialization for collateral metrics comparison
+  var ctx = document.getElementById("collateral-chart").getContext("2d");
+  var collateralChart = new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels: ["Real Estate", "Inventory"],
+      datasets: [
+        {
+          label: "Comparable Metrics",
+          data: [80, 60], // Replace with actual data values
+          backgroundColor: [
+            "rgba(54, 162, 235, 0.8)",
+            "rgba(75, 192, 192, 0.8)",
+          ],
+          borderColor: ["rgba(54, 162, 235, 1)", "rgba(75, 192, 192, 1)"],
+          borderWidth: 1,
+        },
+      ],
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+        },
+      },
+    },
+  });
+
+  // AmCharts initialization for historical performance analysis
+  am4core.ready(function () {
+    // Create chart instance
+    var collateralTimeline = am4core.create(
+      "collateral-timeline",
+      am4charts.XYChart
+    );
+
+    // Add data
+    collateralTimeline.data = [
+      {
+        year: "2018",
+        realEstate: 50,
+        inventory: 30,
+      },
+      {
+        year: "2019",
+        realEstate: 60,
+        inventory: 40,
+      },
+      {
+        year: "2020",
+        realEstate: 70,
+        inventory: 50,
+      },
+      {
+        year: "2021",
+        realEstate: 80,
+        inventory: 60,
+      },
+      {
+        year: "2022",
+        realEstate: 90,
+        inventory: 70,
+      },
+    ];
+
+    // Create axes
+    var categoryAxis = collateralTimeline.xAxes.push(
+      new am4charts.CategoryAxis()
+    );
+    categoryAxis.dataFields.category = "year";
+
+    var valueAxis = collateralTimeline.yAxes.push(new am4charts.ValueAxis());
+
+    // Create series
+    var realEstateSeries = collateralTimeline.series.push(
+      new am4charts.LineSeries()
+    );
+    realEstateSeries.dataFields.valueY = "realEstate";
+    realEstateSeries.dataFields.categoryX = "year";
+    realEstateSeries.name = "Real Estate";
+    realEstateSeries.strokeWidth = 2;
+
+    var inventorySeries = collateralTimeline.series.push(
+      new am4charts.LineSeries()
+    );
+    inventorySeries.dataFields.valueY = "inventory";
+    inventorySeries.dataFields.categoryX = "year";
+    inventorySeries.name = "Inventory";
+    inventorySeries.strokeWidth = 2;
+
+    // Add chart cursor
+    collateralTimeline.cursor = new am4charts.XYCursor();
+
+    // Add legend
+    collateralTimeline.legend = new am4charts.Legend();
+
+    // Add scrollbar
+    collateralTimeline.scrollbarX = new am4core.Scrollbar();
+  });
+</script>
+{% endblock javascripts %}

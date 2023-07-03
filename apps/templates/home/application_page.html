@@ -1,0 +1,118 @@
+{% extends "layouts/base.html" %} {% block title %} Application {% endblock %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %} {% block content %}
+
+<!-- [ Main Content ] start -->
+<div class="pcoded-main-container">
+  <div class="pcoded-wrapper">
+    <div class="pcoded-content">
+      <div class="pcoded-inner-content">
+        <!-- [ breadcrumb ] start -->
+        <!-- [ breadcrumb ] end -->
+        <div class="main-body">
+          <div class="page-wrapper">
+            <!-- [ Main Content ] start -->
+            <div class="row">
+              <div class="col-md-12">
+                <div class="card">
+                  <div class="card-header">
+                    <h5>Loan Application</h5>
+                  </div>
+                  <div class="card-body">
+                    <!-- Application Form -->
+                    <form>
+                      <div class="form-group">
+                        <label for="applicantName">Applicant Name</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="applicantName"
+                          placeholder="Enter your name"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="applicantEmail">Email Address</label>
+                        <input
+                          type="email"
+                          class="form-control"
+                          id="applicantEmail"
+                          placeholder="Enter your email"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="applicantPhone">Phone Number</label>
+                        <input
+                          type="tel"
+                          class="form-control"
+                          id="applicantPhone"
+                          placeholder="Enter your phone number"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="loanAmount">Loan Amount</label>
+                        <input
+                          type="number"
+                          class="form-control"
+                          id="loanAmount"
+                          placeholder="Enter loan amount"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="loanPurpose">Loan Purpose</label>
+                        <textarea
+                          class="form-control"
+                          id="loanPurpose"
+                          rows="3"
+                          placeholder="Describe the purpose of the loan"
+                        ></textarea>
+                      </div>
+                      <div class="form-group">
+                        <label for="collateralType">Collateral Type</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="collateralType"
+                          placeholder="Enter collateral type"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="collateralValue">Collateral Value</label>
+                        <input
+                          type="number"
+                          class="form-control"
+                          id="collateralValue"
+                          placeholder="Enter collateral value"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="businessDetails">Business Details</label>
+                        <textarea
+                          class="form-control"
+                          id="businessDetails"
+                          rows="3"
+                          placeholder="Provide details about your business"
+                        ></textarea>
+                      </div>
+                      <!-- Add more relevant form fields such as project description, financial statements, etc. -->
+                      <button type="submit" class="btn btn-primary">
+                        Submit Application
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- [ Main Content ] end -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- [ Main Content ] end -->
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

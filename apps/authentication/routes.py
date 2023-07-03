@@ -116,7 +116,12 @@ def register():
 @blueprint.route('/logout')
 def logout():
     logout_user()
-    return redirect(url_for('authentication_blueprint.login')) 
+    return redirect(url_for('authentication_blueprint.login'))
+
+# Endpoint for Applicant document upload
+@blueprint.route('/applicant/documents')
+def upload():
+    return render_template('home/document_upload.html')
 
 # Errors
 
