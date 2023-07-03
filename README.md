@@ -63,6 +63,6 @@ The AssetNext Prototype is released under the [MIT License](LICENSE).
 
 ## Contact
 
-For any inquiries or feedback, please contact [your-name](mailto:your-email@example.com).
+For any inquiries or feedback, please contact [your-name](mailto:contact.jorgensen@example.com).
 
 Thank you for using the AssetNext Prototype! We hope it serves as a valuable tool in streamlining the asset-based financing process and promoting collaboration among stakeholders.
