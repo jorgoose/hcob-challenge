@@ -47,16 +47,6 @@ To get started with the AssetNext Prototype, follow these steps:
 
 5. Open your browser and visit `http://localhost:5000` to access the AssetNext Prototype.
 
-## Contributing
-
-We welcome contributions to enhance the functionality and usability of the AssetNext Prototype. If you would like to contribute, please follow these guidelines:
-
-1. Fork the repository and create your branch from `main`.
-2. Make your changes and ensure the code passes all tests.
-3. Commit your changes with descriptive commit messages.
-4. Push your changes to your forked repository.
-5. Open a pull request to the `main` branch of this repository.
-
 ## License
 
 The AssetNext Prototype is released under the [MIT License](LICENSE).
